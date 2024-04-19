@@ -1,11 +1,15 @@
 "use client";
 
 import { useSelector } from "react-redux";
-import { RootState } from "../../redux/store";
+import { RootState, dispatch } from "../../redux/store";
 import Link from "next/link";
+import { deleteBook } from "@/redux/slices/bookSlice";
 
 const BookList = () => {
   const books = useSelector((state: RootState) => state.books.books);
+  const handleDelete = (id: number) => {
+    dispatch(deleteBook(id));
+  };
 
   return (
     <div>
@@ -22,7 +26,7 @@ const BookList = () => {
               <span> - Description: </span>
               <span>{book.description}</span>
             </Link>
-            <button>Delete</button>
+            <button onClick={() => handleDelete(book.id)}>Delete</button>
           </li>
         ))}
       </ul>
