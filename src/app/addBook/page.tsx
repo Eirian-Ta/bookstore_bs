@@ -2,15 +2,16 @@
 
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "../../../redux/store";
-import { modifyBook } from "@/redux/slices/bookSlice";
-import Header from "@/app/components/Header";
+import { useDispatch } from "react-redux";
+import { addBook } from "@/redux/slices/bookSlice";
+import Header from "../components/Header";
+import { RootState, useSelector } from "@/redux/store";
 
-export default function Page({ params }: { params: { id: number } }) {
+export default function Page() {
   const router = useRouter();
-  const book = useSelector((state: RootState) =>
-    state.books.books.find((book) => book.id == params.id)
+
+  const newId = useSelector(
+    (state: RootState) => state.books.books.slice(-1)[0].id + 1
   );
 
   const [name, setName] = useState("");
@@ -18,39 +19,28 @@ export default function Page({ params }: { params: { id: number } }) {
   const [category, setCategory] = useState("");
   const [description, setDescription] = useState("");
 
-  useEffect(() => {
-    if (book) {
-      setName(book.name);
-      setPrice(book.price.toString());
-      setCategory(book.category);
-      setDescription(book.description);
-    }
-  }, [book]);
-
   const dispatch = useDispatch();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (book) {
-      dispatch(
-        modifyBook({
-          ...book,
-          name,
-          price: parseFloat(price),
-          category,
-          description,
-        })
-      );
-    }
+
+    dispatch(
+      addBook({
+        id: newId,
+        name,
+        price: parseFloat(price),
+        category,
+        description,
+      })
+    );
+
     router.push("/");
   };
 
   return (
     <div>
       <Header />
-      <h2>
-        Edit: Book {name} {params.id}
-      </h2>
+      <h2>Add Book</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">Name:</label>
         <input
@@ -79,7 +69,7 @@ export default function Page({ params }: { params: { id: number } }) {
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
-        <button type="submit">Save Changes</button>
+        <button type="submit">Add Book</button>
       </form>
     </div>
   );

@@ -1,11 +1,15 @@
 import React from "react";
 import BookList from "../app/components/BookList";
+import Header from "./components/Header";
+import Link from "next/link";
 
 export default function Home() {
   return (
     <main>
-      {/* <AddBook /> */}
-      <h1>Book Store</h1>
+      <Header />
+      <Link href={"/addBook"}>
+        <button>Add More Book</button>
+      </Link>
       <BookList />
     </main>
   );
