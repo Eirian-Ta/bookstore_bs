@@ -5,7 +5,7 @@ export const bookListData = [
     id: 1,
     name: "Book 1",
     price: 5,
-    category: [1, 2],
+    category: "poem",
     description:
       "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. ",
   },
@@ -13,7 +13,7 @@ export const bookListData = [
     id: 2,
     name: "Book 2",
     price: 15,
-    category: [2, 3],
+    category: "long stories",
     description:
       "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. ",
   },
@@ -21,7 +21,7 @@ export const bookListData = [
     id: 3,
     name: "Book 3",
     price: 25,
-    category: [3, 4],
+    category: "short stories",
     description:
       "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. ",
   },

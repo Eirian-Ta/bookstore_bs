@@ -17,16 +17,20 @@ const booksSlice = createSlice({
       state.books.push(action.payload);
     },
     // Add a reducer to edit an existing book
-    editBook(state, action: PayloadAction<Book>) {
+    modifyBook(state, action: PayloadAction<Book>) {
       const { id, name, price, category, description } = action.payload;
-      const existingBook = state.books.find((book) => book.id === id);
-      if (existingBook) {
-        existingBook.name = name;
-        existingBook.price = price;
-        existingBook.category = category;
-        existingBook.description = description;
+      const existingBookIndex = state.books.findIndex((book) => book.id === id);
+      if (existingBookIndex !== -1) {
+        state.books[existingBookIndex] = {
+          ...state.books[existingBookIndex],
+          name,
+          price,
+          category,
+          description,
+        };
       }
     },
+
     // Add a reducer to delete a book
     deleteBook(state, action: PayloadAction<number>) {
       state.books = state.books.filter((book) => book.id !== action.payload);
@@ -35,5 +39,5 @@ const booksSlice = createSlice({
 });
 
 // Export the action creators and reducer
-export const { addBook, editBook, deleteBook } = booksSlice.actions;
+export const { addBook, modifyBook, deleteBook } = booksSlice.actions;
 export default booksSlice.reducer;

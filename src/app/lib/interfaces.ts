@@ -3,7 +3,7 @@ export interface Book {
   id: number;
   name: string;
   price: number;
-  category: number[];
+  category: string;
   description: string;
 }
 

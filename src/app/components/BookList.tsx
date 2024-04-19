@@ -21,7 +21,7 @@ const BookList = () => {
               <span> {book.name}</span>
               <span> - Price: </span>
               <span>{book.price} CAD</span>
-              <span> - Categories: </span>
+              <span> - Category: </span>
               <span>{book.category}</span>
               <span> - Description: </span>
               <span>{book.description}</span>
