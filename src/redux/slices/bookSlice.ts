@@ -1,19 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { bookListData } from "../../app/lib/placeholder-data";
-
-// Define the interface for a single book
-interface Book {
-  id: number;
-  name: string;
-  price: number;
-  category: number[];
-  description: string;
-}
-
-// Define the interface for the books state
-interface BooksState {
-  books: Book[];
-}
+import { Book, BooksState } from "@/app/lib/interfaces";
 
 // Define the initial state
 const initialState: BooksState = {
