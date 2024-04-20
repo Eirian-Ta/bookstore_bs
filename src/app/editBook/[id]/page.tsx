@@ -37,7 +37,7 @@ export default function EditBookPage({ params }: { params: { id: number } }) {
   return (
     <div>
       <Header />
-      <h2>Edit Book</h2>
+      <h2 className="text-center font-bold">Edit Book</h2>
       {book && (
         <BookForm
           initialValues={initialValues}

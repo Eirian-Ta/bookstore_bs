@@ -24,36 +24,58 @@ const BookForm = ({
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="name">Name:</label>
-      <input
-        type="text"
-        name="name"
-        value={name}
-        required
-        onChange={(e) => setName(e.target.value)}
-      />
-      <label htmlFor="price">Price:</label>
-      <input
-        type="number"
-        name="price"
-        value={price}
-        onChange={(e) => setPrice(parseFloat(e.target.value))}
-      />
-      <label htmlFor="category">Category:</label>
-      <input
-        type="text"
-        name="category"
-        value={category}
-        onChange={(e) => setCategory(e.target.value)}
-      />
-      <label htmlFor="description">Description:</label>
-      <textarea
-        name="description"
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-      />
-      <button type="submit">{submitButtonText}</button>
+    <form className="wrapper m-6 p-6" onSubmit={handleSubmit}>
+      <div className="w-full flex flex-col my-2">
+        <label htmlFor="name">Name:</label>
+        <input
+          className="flex-grow px-2"
+          type="text"
+          name="name"
+          value={name}
+          required
+          onChange={(e) => setName(e.target.value)}
+        />
+      </div>
+      <div className="flex">
+        <div className="w-1/3 flex flex-col my-2 mr-6">
+          <label htmlFor="price">Price:</label>
+          <input
+            className="flex-grow px-2"
+            type="number"
+            name="price"
+            value={price}
+            onChange={(e) => setPrice(parseFloat(e.target.value))}
+          />
+        </div>
+        <div className="flex my-2 flex-grow flex-col">
+          <label htmlFor="category">Category:</label>
+          <input
+            className="flex-grow px-2"
+            type="text"
+            name="category"
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+          />
+        </div>
+      </div>
+      <div className="w-full flex flex-col my-2">
+        <label htmlFor="description">Description:</label>
+        <textarea
+          className="flex-grow px-2"
+          name="description"
+          value={description}
+          rows={4}
+          maxLength={900}
+          onChange={(e) => setDescription(e.target.value)}
+        />
+      </div>
+
+      <button
+        className="bg-blue-500 text-white px-6 py-2 mt-3 rounded-full"
+        type="submit"
+      >
+        {submitButtonText}
+      </button>
     </form>
   );
 };

@@ -13,20 +13,36 @@ const BookList = () => {
 
   return (
     <div>
-      <ul>
+      <ul className="flex text-left">
         {books.map((book) => (
-          <li key={book.id}>
+          <li
+            key={book.id}
+            className="wrapper p-6 m-4 flex flex-col justify-between"
+          >
             <Link href={`/editBook/${book.id}`}>
-              <span>Name:</span>
-              <span> {book.name}</span>
-              <span> - Price: </span>
-              <span>{book.price} CAD</span>
-              <span> - Category: </span>
-              <span>{book.category}</span>
-              <span> - Description: </span>
-              <span>{book.description}</span>
+              <p>
+                <span className="font-bold">Name:</span>
+                <span> {book.name}</span>
+              </p>
+              <p>
+                <span className="font-bold">Price: </span>
+                <span>{book.price} CAD</span>
+              </p>
+              <p>
+                <span className="font-bold">Category: </span>
+                <span>{book.category}</span>
+              </p>
+              <p>
+                <span className="font-bold">Description: </span>
+                <span>{book.description}</span>
+              </p>
             </Link>
-            <button onClick={() => handleDelete(book.id)}>Delete</button>
+            <button
+              className="bg-red-500 text-white px-6 py-2 mt-3 rounded-full"
+              onClick={() => handleDelete(book.id)}
+            >
+              Delete
+            </button>
           </li>
         ))}
       </ul>

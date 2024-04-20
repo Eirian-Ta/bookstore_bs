@@ -31,3 +31,47 @@ body {
     text-wrap: balance;
   }
 }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+tr.even {
+  background-color: #f2f2f2;
+}
+
+tr.odd {
+  background-color: #fff;
+}
+
+button {
+  margin-right: 5px;
+}
+
+h1 {
+  font-size: 25px;
+  font-weight: 600;
+  text-align: center;
+  margin: 10px;
+}
+
+.wrapper {
+  border-radius: 10px;
+  box-shadow: -5px -5px 9px rgba(255, 255, 255, 0.45),
+    5px 5px 9px rgba(94, 104, 121, 0.3);
+}
+
+li {
+  width: 500px;
+}
