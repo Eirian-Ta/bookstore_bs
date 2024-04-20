@@ -28,13 +28,11 @@ export default function EditBookPage({ params }: { params: { id: number } }) {
     router.push("/");
   };
 
-  // Convert price to string
   const initialValues = book
     ? {
         ...book,
-        price: book.price.toString(),
       }
-    : { name: "", price: "", category: "", description: "" };
+    : { name: "", price: 0, category: "", description: "" };
 
   return (
     <div>

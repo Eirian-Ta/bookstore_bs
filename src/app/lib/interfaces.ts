@@ -16,7 +16,7 @@ export interface BooksState {
 export interface BookFormProps {
   initialValues: {
     name: string;
-    price: string;
+    price: number;
     category: string;
     description: string;
   };

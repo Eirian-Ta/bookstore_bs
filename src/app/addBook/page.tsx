@@ -37,7 +37,7 @@ export default function AddBookPage() {
       <Header />
       <h2>Add Book</h2>
       <BookForm
-        initialValues={{ name: "", price: "", category: "", description: "" }}
+        initialValues={{ name: "", price: 0, category: "", description: "" }}
         onSubmit={handleSubmit}
         submitButtonText="Add Book"
       />

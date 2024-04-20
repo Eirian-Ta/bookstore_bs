@@ -17,7 +17,7 @@ const BookForm = ({
     e.preventDefault();
     onSubmit({
       name,
-      price: parseFloat(price),
+      price,
       category,
       description,
     });
@@ -30,6 +30,7 @@ const BookForm = ({
         type="text"
         name="name"
         value={name}
+        required
         onChange={(e) => setName(e.target.value)}
       />
       <label htmlFor="price">Price:</label>
@@ -37,7 +38,7 @@ const BookForm = ({
         type="number"
         name="price"
         value={price}
-        onChange={(e) => setPrice(e.target.value)}
+        onChange={(e) => setPrice(parseFloat(e.target.value))}
       />
       <label htmlFor="category">Category:</label>
       <input
